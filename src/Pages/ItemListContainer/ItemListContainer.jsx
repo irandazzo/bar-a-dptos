@@ -15,7 +15,6 @@ import {products} from "../../data/products";
     useEffect(() => {
         getProducts
         .then ((response) => {
-            console.log(response);
             setProductList(response)
         })
         .catch ((error) => {
