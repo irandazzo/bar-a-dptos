@@ -5,14 +5,16 @@ const ItemList = ({productList}) => {
     console.log(productList);
 
     return (
-        <div className="itemList">
-            {productList.map((product) =>
-            <div key={product.id}>
-                <Link to={`/item/${product.id}`}>
-                    <Item product={product}/>
-                </Link>
+        <div className="productitos">
+            <div className="itemList">
+                {productList.map((product) =>
+                <div key={product.id}>
+                    <Link to={`/item/${product.id}`}>
+                        <Item product={product}/>
+                    </Link>
+                </div>
+                )}
             </div>
-            )}
         </div>
     );
 };
