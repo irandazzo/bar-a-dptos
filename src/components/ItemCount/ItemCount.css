@@ -1,23 +1,17 @@
-
-
-/* .counter{
+.controllers {
     display: flex;
-    margin: 10px;
 }
-.counter button{
-    display: flex;
-    justify-content: center;
+.controllers button {
+    font-size: 25px;
+    width: 50px;
     background-color: #000;
-    margin: 10px;
-    padding: 20px;
-    color: #FFF;
-    border-radius: 40px;
+    font-weight: bolder;
+}
 
+.counter {
+    font-size: 25px;
+    font-weight: bolder;
 }
 .counter span {
-    display: flex;
-    justify-content: center;
-    color: #000;
-    font-weight: 700;
+    padding: 15px;
 }
- */

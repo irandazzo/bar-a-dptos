@@ -1,10 +1,10 @@
-.item{
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1);
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 10px;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
+    margin-block-end: 15px;
 }
-img{
-    width: 100px;
+.item img {
+  width: 100%;
 }

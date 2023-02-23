@@ -1,12 +1,37 @@
-.itemList{
+.itemList {
+    padding: 25px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
-.productitos{
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+.itemList a {
+    text-decoration: none;
+    color: #000;
+}
+.card {
+    width: 25%;
+    padding-inline: 10px;
     margin: 10px;
+}
+.card button{
+    display: block;
+    margin: auto;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+.card button:hover{
+    background-color: #fff;
+    color: #000;
+}
+.container h3{
+    font-size: 15px;
+    color: #000;
+}
+.itemList a:hover{
+    color: #000;
 }
