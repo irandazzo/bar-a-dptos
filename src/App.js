@@ -3,6 +3,7 @@ import ItemListContainer from "./Pages/ItemListContainer/ItemListContainer";
 import NavBar from "./components/NavBar/NavBar";
 import ItemDetailContainer from "./Pages/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./Pages/Cart/Cart";
+import CartProvider from "./context/CartProvider";
 /* import {products} from "./data/products"; */
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <BrowserRouter>
+        <CartProvider>
           <NavBar />
           <Routes>
             <Route path="/" element={<ItemListContainer/>}/>
@@ -18,6 +20,7 @@ function App() {
             <Route path="/category/:categoryId" element= {<ItemListContainer/>}/>
             <Route path="/cart" element= {<Cart/>}/>
           </Routes>
+          </CartProvider>
         </BrowserRouter>
       <div>
       

@@ -1,9 +1,14 @@
+import { useContext } from "react";
+import { CartContext } from '../../context/CartContext';
 import './CartWidget.css'
-export default function CartWidget () {
+const CartWidget = () => {
+    const {cart} = useContext(CartContext);
+    console.log(cart);
     return (
         <div className='carrito'>
-            <img src="./images/carrito.png" alt="carrito" /* width={`50px`} *//>
-            <p className='numCarrito'>0</p>
+            <img src="./images/carrito.png" alt="carrito"/>
+            {cart?.lenght}
         </div> 
-    )
-}
+    );
+};
+export default CartWidget;

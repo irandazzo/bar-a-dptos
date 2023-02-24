@@ -1,8 +1,9 @@
 import './NavBar.css';
 import CartWidget from '../CartWidget/CartWidget';
 import {Link, NavLink} from "react-router-dom";
-
-export default function NavBar() {
+import { useContext } from 'react';
+import {CartContext} from '../../context/CartContext';
+const NavBar = () => {
   return (
     <div className='navbar'>
       <div className='logo'>
@@ -33,3 +34,4 @@ export default function NavBar() {
     </div>
   );
 }
+export default NavBar;
