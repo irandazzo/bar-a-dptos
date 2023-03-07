@@ -1,8 +1,12 @@
 
 .carrito{
     display: flex;
-    text-align: center;
     margin: 10px;
+    align-items: center;
+    color: #fff;
+    font-size: 20px;
+    list-style-type: none;
+    
 }
 .carrito img{
     display: flex;

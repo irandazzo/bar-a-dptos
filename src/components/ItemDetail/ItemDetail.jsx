@@ -16,8 +16,8 @@ const ItemDetail = ({detail}) => {
 }; */
   return (
     <div className='cardDetail'>
-      <img src={detail.image} alt={detail.name} width="200px"/>
-      <h2>{detail.name}</h2>
+      <img src={`/images/${detail.image}`} alt={detail.title} width="200px"/>
+      <h2>{detail.title}</h2>
       <h3>${detail.price}</h3>
       <ItemCount count={count} setCount={setCount} />
       <button onClick={() => navigate (`/`)}>Seguir Comprando</button>
