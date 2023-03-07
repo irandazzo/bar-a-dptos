@@ -11,15 +11,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         <BrowserRouter>
-        <CartProvider>
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<ItemListContainer/>}/>
-            <Route path="*" element={<div><h1>Esta página no existe</h1></div>}/>
-            <Route path="/Item/:id" element={<ItemDetailContainer/>}/>
-            <Route path="/category/:categoryId" element= {<ItemListContainer/>}/>
-            <Route path="/cart" element= {<Cart/>}/>
-          </Routes>
+          <CartProvider>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<ItemListContainer/>}/>
+              <Route path="*" element={<div><h1>Esta página no existe</h1></div>}/>
+              <Route path="/Item/:id" element={<ItemDetailContainer/>}/>
+              <Route path="/category/:categoryId" element= {<ItemListContainer/>}/>
+              <Route path="/cart" element= {<Cart/>}/>
+            </Routes>
           </CartProvider>
         </BrowserRouter>
       <div>
