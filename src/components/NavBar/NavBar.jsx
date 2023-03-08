@@ -12,16 +12,16 @@ const NavBar = () => {
       <div className='menu'>
         <ul>
           <li>
-            <NavLink to="/">Inicio</NavLink>
+            <NavLink to="/">Home</NavLink>
             </li>
           <li>
-            <Link to="/category/cervezas">Cervezas</Link>
+            <Link to="/category/Cervezas">Cervezas</Link>
           </li>
           <li>
-            <Link to="category/aperitivos">Aperitivos</Link>
+            <Link to="category/Aperitivos">Aperitivos</Link>
           </li>
           <li>
-            <Link to="category/espumantes">Espumantes</Link>
+            <Link to="category/Espumantes">Espumantes</Link>
           </li>
           <li>
             <Link to="/">Todos los Productos</Link>

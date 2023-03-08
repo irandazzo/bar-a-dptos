@@ -12,7 +12,7 @@ const ItemList = ({productList}) => {
                 <div className="card" key={product.id}>
                     <Link to={`/item/${product.id}`}>
                         <Item product={product}/>
-                        <button>Detalle del Producto</button>
+                        <button>Agregar</button>
                     </Link>
                 </div>
                 )}

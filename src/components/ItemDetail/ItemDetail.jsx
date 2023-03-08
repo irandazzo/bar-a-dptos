@@ -7,7 +7,7 @@ import {CartContext} from '../../context/CartContext';
 const ItemDetail = ({detail}) => {
   const navigate = useNavigate();
   const {addItem} = useContext(CartContext);
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(detail.stock === 0 ? 0 : 1);
 
 /* const agregarAlCarrito = (event) => {
   event.preventDefault()
@@ -17,12 +17,14 @@ const ItemDetail = ({detail}) => {
   return (
     <div className='cardDetail'>
       <img src={`/images/${detail.image}`} alt={detail.title} width="200px"/>
-      <h2>{detail.title}</h2>
-      <h3>${detail.price}</h3>
-      <ItemCount count={count} setCount={setCount} />
-      <button onClick={() => navigate (`/`)}>Seguir Comprando</button>
-      <button onClick={() => addItem(detail, count)}>Agregar al Carrito</button>
-      <button onClick={() => navigate (`/cart`)}>Terminar Compra</button>
+        <div className='cardDetail2'>
+          <h2>{detail.title}</h2>
+          <h3>${detail.price}</h3>
+          <ItemCount count={count} setCount={setCount} />
+          <button onClick={() => navigate (`/`)}>Seguir Comprando</button>
+          <button onClick={() => addItem(detail, count)}>Agregar al Carrito</button>
+          <button onClick={() => navigate (`/cart`)}>Terminar Compra</button>
+        </div>
     </div>
   );
 }

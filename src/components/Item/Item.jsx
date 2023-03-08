@@ -4,9 +4,9 @@ const Item = ({product}) => {
   console.log(product.image);
   return (
     <div className='item'>
-      <img alt={product.title} src={`/images/${product.image}`}/>
+      <img className="imagenBebida" alt={product.title} src={`/images/${product.image}`}/>
       <h3>{product.title}</h3>
-      <h4>${product.price}</h4>
+      <h4>Precio: ${product.price}</h4>
     </div>
   );
 };

@@ -14,12 +14,12 @@ const ItemCount = ({count, setCount}) => {
   return (
     <div className="counter"> 
     <div className="controllers">
-      <button onClick={restar}>-</button>
+      <button disabled={count === 0} onClick={restar}>-</button>
       <div>
         <span>{count}</span>
       </div>
       <div>
-        <button onClick={onAdd}>+</button>
+        <button disabled={count === 0} onClick={onAdd}>+</button>
       </div>
     </div>
     </div>
