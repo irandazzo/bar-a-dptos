@@ -3,7 +3,9 @@ import { useState } from "react";
 
 const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
-
+    const [totalPrice, setTotalPrice] = useState(0);
+    const [totalQty, setTotalQty] = useState(0);
+    
     const addItem = (item, quantity) => {
         console.log(isInCart(item.id));
 
@@ -29,17 +31,21 @@ const CartProvider = ({children}) => {
                 image: item.image
             };
             setCart([...cart, product]);
+            setTotalPrice (totalPrice + (product.price * product.quantity));
+            
         }
     };
 
- /*    console.log(cart); */
 
     const clear = () => {
         setCart([]);
+        setTotalPrice(0);
     };
 
     const removeItem = (productId) => {
-        setCart(cart.filter((product) => product.id !== productId))
+        setCart(cart.filter((product) => product.id !== productId));
+        setTotalPrice(totalPrice - productId.price);
+
     };
 
     const isInCart = (productId) => {
@@ -51,7 +57,7 @@ const CartProvider = ({children}) => {
     };
 
     return (
-    <CartContext.Provider value={{cart, addItem, clear, removeItem}}>
+    <CartContext.Provider value={{cart, addItem, totalPrice, clear, removeItem, }}>
         {children}
     </CartContext.Provider>
     );

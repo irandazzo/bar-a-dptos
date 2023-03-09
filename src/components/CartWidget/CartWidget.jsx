@@ -6,7 +6,6 @@ import './CartWidget.css'
 const CartWidget = () => {
     const {cart} = useContext(CartContext);
     const [total, setTotal] = useState(0);
-    console.log(cart);
     
     useEffect (() => {
         setTotal(cart.reduce((prev, curr) => prev + curr.quantity, 0))

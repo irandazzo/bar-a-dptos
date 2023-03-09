@@ -1,40 +1,66 @@
-.cartDetail{
+.cartList {
+    margin-left: 50px;
+    margin-right: 50px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    
+    justify-content: center;
 }
-.carritoVacio{
+.cartList td, th {
+    text-align: center;
+    padding: 8px;
+}
+.cartList th {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.cartList tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+.trashButton {
+    border-radius: 100px;
+    padding: 10px;
+    background-color: #000;
+    border: none;
+    border-color: #fff;
+    color: #fff;
+}
+.trashButton1 {
+    padding: 10px;
+    background-color: #dedddd;
+    border: none;
+    border-color: #fff;
+    color: #000;
+}
+.botonesCarrito{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+}
+.botonesCarrito button{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+}
+.tablaTotal {
+    background-color: #dedddd;
+}
+.carritoVacio {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 30px;
     padding: 20px;
 }
-.carritoVacio img{
+.carritoVacio img {
     height: 350px;
     width: 350px;
     margin: 50px;
 }
-.carritoVacio span{
+.carritoVacio span {
     text-align: center;
     font-size: 70px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-/* .buttonCart button{
-    background-color: #000;
-    color: #fff;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 7px;
-    justify-content: center;
-}
-.vaciarCarrito button{
-    background-color: #000;
-    color: #fff;
-    border-radius: 10px;
-    margin: 10px;
-    padding: 7px;
-    justify-content: center;
-} */
