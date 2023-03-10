@@ -1,10 +1,13 @@
 import {CartContext} from "./CartContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
-    const [totalPrice, setTotalPrice] = useState(0);
-    const [totalQty, setTotalQty] = useState(0);
+    const [total, setTotal] = useState (0);
+
+    useEffect(() => {
+        setTotal (cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0))
+    }, [cart]);
     
     const addItem = (item, quantity) => {
         console.log(isInCart(item.id));
@@ -31,21 +34,16 @@ const CartProvider = ({children}) => {
                 image: item.image
             };
             setCart([...cart, product]);
-            setTotalPrice (totalPrice + (product.price * product.quantity));
-            
         }
     };
 
 
     const clear = () => {
         setCart([]);
-        setTotalPrice(0);
     };
 
     const removeItem = (productId) => {
         setCart(cart.filter((product) => product.id !== productId));
-        setTotalPrice(totalPrice - productId.price);
-
     };
 
     const isInCart = (productId) => {
@@ -56,8 +54,23 @@ const CartProvider = ({children}) => {
         }
     };
 
+    const updateItem = (productId, newQuantity) => {
+        const newCart = cart.map((product) => {
+            if (productId === product.id) {
+                return {
+                    ...product,
+                    quantity:newQuantity
+                }
+            } else {
+                return product
+            }
+        })
+        setCart (newCart);
+    };
+
+
     return (
-    <CartContext.Provider value={{cart, addItem, totalPrice, clear, removeItem, }}>
+    <CartContext.Provider value={{cart, addItem, clear, removeItem, total, setCart, updateItem}}>
         {children}
     </CartContext.Provider>
     );

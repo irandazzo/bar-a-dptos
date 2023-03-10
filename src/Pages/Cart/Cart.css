@@ -1,35 +1,35 @@
-.cartList {
-    margin-left: 50px;
-    margin-right: 50px;
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
 }
-.cartList td, th {
-    text-align: center;
-    padding: 8px;
+.cart-table th,
+.cart-table td {
+    /* border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; */
+    padding: 10px;
+    text-align: left;
 }
-.cartList th {
-    text-transform: uppercase;
-    font-size: 14px;
+/* .cart-table th{
+    border: 1px solid #ddd;
+} */
+.cart-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
 }
-.cartList tr:nth-child(even) {
-    background-color: #f3f3f3;
+.cart-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
 }
-.trashButton {
+.trashButton button {
     border-radius: 100px;
     padding: 10px;
-    background-color: #000;
     border: none;
     border-color: #fff;
     color: #fff;
-}
-.trashButton1 {
-    padding: 10px;
-    background-color: #dedddd;
-    border: none;
-    border-color: #fff;
-    color: #000;
+    background-color: #000;
+    align-content: center;
 }
 .botonesCarrito{
     display: flex;
@@ -44,8 +44,13 @@
     background-color: #000;
     color: #fff;
 }
-.tablaTotal {
+.tableTotal{
     background-color: #dedddd;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
 }
 .carritoVacio {
     display: flex;

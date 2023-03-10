@@ -1,11 +1,12 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { collection, addDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
 import "./Cart.css";
+import ItemCart from "./ItemCart";
 
 const Cart = () => {
-  const {cart, totalPrice, clear, removeItem} = useContext(CartContext);
+  const {cart, clear, removeItem, total} = useContext(CartContext);
   const navigate = useNavigate();
   const dataBase = getFirestore();
   const createOrder = (event) => {
@@ -26,7 +27,7 @@ const Cart = () => {
           quantity: product.quantity
         }
       }),
-      total: cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0),
+      total: total,
     })
     .then((response) => {
       console.log(response.id);
@@ -49,31 +50,17 @@ const Cart = () => {
     });
   };
   return (
-    <div className="cartList">
+    <div >
       {cart.length > 0 && (
-        <table>
-          <thead>
-            <tr>
-              <th className="tablaTotal"></th>
-              <th className="tablaTotal">Producto</th>
-              <th className="tablaTotal">Cant.</th>
-              <th className="tablaTotal">P. Unitario</th>
-              <th className="tablaTotal">Subtotal</th>
-              <th className="tablaTotal"></th>
-            </tr>
-          </thead>
+        <table className="cart-table">
           <tbody>
             {cart.map((product) => (
               <tr key={product.id}>
                 <td>
-                  <img src={`/images/${product.image}`} width="140px" alt={product.name}/>
+                <ItemCart product={product}/>
                 </td>
-                <td>{product.name}</td>
-                <td>{product.quantity}</td>
-                <td>${product.price}</td>
-                <td>${product.price * product.quantity}</td>
-                <td>
-                  <button className="trashButton"onClick={() => removeItem(product.id)}>
+                <td className="trashButton">
+                <button onClick={() => removeItem(product.id)}>
                     <svg xmlns="http://www.w3.org/2000/svg" 
                       width="32" height="32" viewBox="0 0 32 32">
                       <path fill="none" stroke="white" 
@@ -91,20 +78,24 @@ const Cart = () => {
               // </div>
             ))}
             
+            {/* <th></th>
             <th></th>
-            <th></th>
-            <th></th>
-            <th className="tablaTotal">Total:</th>
-            <th className="tablaTotal">$ {totalPrice}</th>
-            <th>{cart.length > 0 && <button className="trashButton1"onClick={clear}>Vaciar Carrito</button>}</th>            
+            <th></th> */}
+           {/*  <th className="tablaTotal">Total:</th> */}
+            {/* <th className="tableTotal">Total: $ {total}</th> */}
+            {/* <th>{cart.length > 0 && <button className="trashButton1"onClick={clear}>Vaciar Carrito</button>}</th>             */}
           </tbody>
         </table>
         )}
+          <div>
+          <span className="tableTotal">Total a pagar: $ {total}</span>
+          </div>
 
           {cart.length > 0 && (
-          <div className="botonesCarrito">
+          <div className="botonesCarrito">  
             <button onClick={() => navigate (`/`)}>Seguir Comprando</button>
             <button onClick={createOrder}>Completar Compra</button>
+            <button className="trashButton1" onClick={clear}>Eliminar Carrito</button>
           </div>
           
         )}
@@ -137,9 +128,6 @@ const Cart = () => {
             </div>
           </div>
         ))} */}
-        
-        
-    
         {cart.length === 0 && (
           <div className="carritoVacio">
             <span>Carrito Vacio</span>

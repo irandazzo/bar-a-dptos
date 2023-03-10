@@ -13,9 +13,9 @@ const CartWidget = () => {
 
     return (
     <Link to={'/cart'}>
-        <div className='carrito'>
+        <div className='cartIcon'>
             <img src="./images/carrito.png" alt="carrito" width="35px"/>
-            {total}
+            <span className='cartCount'>{total}</span>        
         </div>
     </Link>
     );

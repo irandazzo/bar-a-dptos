@@ -2,16 +2,17 @@
     display: flex;
 }
 .controllers button {
-    font-size: 25px;
-    width: 50px;
+    font-size: 10px;
+    width: 25px;
     background-color: #000;
     font-weight: bolder;
+    color: #fff;
 }
 
 .counter {
-    font-size: 25px;
+    font-size: 15px;
     font-weight: bolder;
 }
 .counter span {
-    padding: 15px;
+    padding: 7px;
 }

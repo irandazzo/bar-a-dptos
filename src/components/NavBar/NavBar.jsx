@@ -22,9 +22,6 @@ const NavBar = () => {
           <li>
             <Link to="category/Espumantes">Espumantes</Link>
           </li>
-          <li>
-            <Link to="/">Todos los Productos</Link>
-          </li>
         </ul>
       </div>
       <div className='carrito'>
