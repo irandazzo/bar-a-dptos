@@ -15,15 +15,22 @@ const ItemDetail = ({detail}) => {
   console.log({...detail, quantity: count });
 }; */
   return (
-    <div className='cardDetail'>
-      <img src={`/images/${detail.image}`} alt={detail.title} width="200px"/>
-        <div className='cardDetail2'>
+    <div className='container'>
+        <img className='imageContainer' src={`/images/${detail.image}`} alt={detail.title} width="200px"/>
+        <div className='detailContainer'>
           <h2>{detail.title}</h2>
+        <div className='descriptionContainer'>
+          <h3>{detail.description}</h3>
+        </div>
+        <div className='priceContainer'>
           <h3>${detail.price}</h3>
-          <ItemCount count={count} setCount={setCount} />
-          <button onClick={() => navigate (`/`)}>Seguir Comprando</button>
-          <button onClick={() => addItem(detail, count)}>Agregar al Carrito</button>
-          <button onClick={() => navigate (`/cart`)}>Terminar Compra</button>
+        </div>
+        <ItemCount count={count} setCount={setCount} />
+        <div className='buttonContainer'>
+          <button className='continueButton' onClick={() => navigate (`/`)}>Seguir Comprando</button>
+          <button className='addCartButton' onClick={() => addItem(detail, count)}>Agregar al Carrito</button>
+          <button className='checkoutButton' onClick={() => navigate (`/cart`)}>Terminar Compra</button>
+        </div>
         </div>
     </div>
   );
