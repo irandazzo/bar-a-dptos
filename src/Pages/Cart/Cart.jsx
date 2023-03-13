@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { collection, addDoc, getFirestore, doc, updateDoc } from "firebase/firestore";
@@ -7,17 +7,25 @@ import ItemCart from "./ItemCart";
 
 const Cart = () => {
   const {cart, clear, removeItem, total} = useContext(CartContext);
+  const [formValue, setFormValue] = useState({
+    name: "",
+    phone: "",
+    email: "",
+  });
+
   const navigate = useNavigate();
-  const dataBase = getFirestore();
+  
+ 
   const createOrder = (event) => {
     event.preventDefault();
+    const dataBase = getFirestore();
     const querySnapshot = collection(dataBase, "orders"); 
 
     addDoc(querySnapshot, {
       buyer: {
-        email: "test2@test.com",
-        name: "Tomas",
-        phone: "+11122334455"
+        email: formValue.email,
+        name: formValue.name,
+        phone: formValue.phone,
       },
       products: cart.map((product) => {
         return {
@@ -32,12 +40,12 @@ const Cart = () => {
     .then((response) => {
       console.log(response.id);
       alert(`Orden con el Id: ${response.id} ha sido creada`);
-      updateStocks();
+      updateStocks(dataBase);
     })
     .catch((error) => console.log(error));
   };
 
-  const updateStocks = () => {
+  const updateStocks = (dataBase) => {
     cart.forEach((product) => {
       const querySnapshot = doc(dataBase, "products", product.id)
       updateDoc(querySnapshot, {
@@ -49,8 +57,16 @@ const Cart = () => {
       .catch((error) => console.log(error));
     });
   };
+
+  const handleInput = (event) => {
+    setFormValue({
+      ...formValue,
+      [event.target.name]: event.target.value,
+    });
+};
+
   return (
-    <div >
+    <div>
       {cart.length > 0 && (
         <table className="cart-table">
           <tbody>
@@ -59,6 +75,7 @@ const Cart = () => {
                 <td>
                 <ItemCart product={product}/>
                 </td>
+                
                 <td className="trashButton">
                 <button onClick={() => removeItem(product.id)}>
                     <svg xmlns="http://www.w3.org/2000/svg" 
@@ -69,6 +86,16 @@ const Cart = () => {
                       d="M28 6H6l2 24h16l2-24H4m12 6v12m5-12l-1 12m-9-12l1 12m0-18l1-4h6l1 4"/></svg>
                   </button>
                 </td>
+                
+                
+                <div>
+                  <form action="" className="cartForm">
+                    <input name="name" type="text" placeholder="Nombre" value={formValue.name} onChange={handleInput}/>
+                    <input name="phone" type="text" placeholder="Teléfono" value={formValue.phone} onChange={handleInput}/>
+                    <input name="email" type="email" placeholder="Email" value={formValue.email} onChange={handleInput}/>
+                    <button onClick={createOrder}>Completar Compra</button>
+                  </form>
+                </div>
               </tr>
               // <div key={producto.id} className="itemCarrito">
               //   <img className="imgProdCarrito" src={producto.image} alt=""/>

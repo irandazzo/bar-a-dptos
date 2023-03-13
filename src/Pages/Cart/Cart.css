@@ -69,3 +69,17 @@
     font-size: 70px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.cartForm{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: 20px;
+}
+.cartForm input{
+    margin: 10px;
+}
+.cartForm button{
+    border-radius: 10px;
+    background-color: #000;
+    color: #fff;
+}
