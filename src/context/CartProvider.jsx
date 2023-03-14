@@ -1,5 +1,7 @@
 import {CartContext} from "./CartContext";
 import { useState, useEffect } from "react";
+import Swal from 'sweetalert2';
+
 
 const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
@@ -34,13 +36,36 @@ const CartProvider = ({children}) => {
                 image: item.image
             };
             setCart([...cart, product]);
+            Swal.fire({
+                title: 'Producto agregado al carrito',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000
+            });
         }
     };
 
 
     const clear = () => {
-        setCart([]);
-    };
+        Swal.fire({
+            title: '¿Está seguro que desea eliminar el carrito?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminar'
+            }).then((result) => {
+            if (result.isConfirmed) {
+            clear();
+            Swal.fire(
+                'Eliminado!',
+                'El carrito ha sido eliminado.',
+                'success'
+            )
+            }
+            setCart([]);
+        })
+}
 
     const removeItem = (productId) => {
         setCart(cart.filter((product) => product.id !== productId));

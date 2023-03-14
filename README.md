@@ -1,3 +1,7 @@
+# Librerias
+
+Se implementa la librería Sweetalert2 y Toastify para darle interactividad a los botones: "Agregar al Carrito", "Vaciar Carrito"
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
