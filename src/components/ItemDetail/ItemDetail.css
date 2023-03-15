@@ -5,12 +5,13 @@
 	display: flex;
 	align-items: center;
 }
-.imageContainer {
-	flex: 1;
-	margin-right: 50px;
-}
-.detailsContainer {
-	flex: 1;
+.detailContainer {/* 
+	flex: 1; */
+	margin: 15px;
+	padding: 10px;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
 }
 .imageContainer img {
 	max-width: 100%;

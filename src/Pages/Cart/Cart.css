@@ -1,48 +1,12 @@
-/* Titulos y totales del Carrito */
-.backgroundTitles th {
-    background-color: #dedddd;
-    padding: 30px;
-}
-table{
-    display: flex;
-    align-items: center;
-}
-/* table tr th{
-    margin-left: 20px;
-}
-thead tr th{
-    background-color: #dedddd;
-    padding: 8px;
-} */
-.cartList{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-}
-.totalPrice {
+.totalPrice span {
     font-size: 20px;
+    font-weight: bold;
+    justify-content: center;
+    display: flex;
     text-transform: uppercase;
-    font-weight: 500;
-    text-align: center;
+    margin: 20px;
+    background-color: #c1c1c1;
 }
-
-.tableCart {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 90vw;
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-/* section {
-    margin: 10px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-} */
 
 /* Estilos del formulario */
 .cartForm {
@@ -56,6 +20,7 @@ thead tr th{
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
 .cartInput {
     width: 100%;
     margin-bottom: 10px;
@@ -63,88 +28,28 @@ thead tr th{
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-.botonesCarrito {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
+
 button {
-    padding: 10px 20px;
+    padding: 5px 7px;
     background-color: #000;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
+
 button:hover {
-    background-color: #1C1C1C;
+    background-color: #1c1c1c;
 }
-
-/* .cartInput {
-    box-sizing: border-box;
-    height: 40px;
-    border: 1px solid #cecece;
-    border-radius: 8px;
-    padding-left: 10px;
-    margin: 5px;
-    transition: 300ms;
-    width: 30%
-}
-
-.cartInput:hover {
-    border: 1px solid #000;
-    outline: none;
-}
-
-.cartInput:focus {
-    outline: 1px solid #4d004d;
-    outline-width: thin;
-    background-color: #f1e9f1;
-    border: none;
-}
-
-.cartForm {
-    display: flex;
-    flex-direction: column;
-    width: 90vw;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cartForm span {
-    margin: 15px;
-    padding: 10px;
-    text-transform: uppercase;
-} */
-
-.cartTable td,
-th {
-    text-align: center;
-    padding: 8px;
-}
-
-.cartTable th {
-    text-transform: uppercase;
-    font-size: 14px;
-}
-
-.cartTable tr:nth-child(even) {
-    background-color: #f3f3f3;
-}
-
-/* .imageProduct {
-    height: 150px;
-} */
 
 /* Botones Carrito */
 .trashButton button {
-    border-radius: 100px;
+    border-radius: 20px;
     padding: 10px;
     border: none;
     border-color: #fff;
     color: #fff;
     background-color: #000;
-    align-content: center;
 }
 
 .botonesCarrito {
@@ -180,5 +85,5 @@ th {
 .carritoVacio span {
     text-align: center;
     font-size: 70px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -37,10 +37,11 @@ const CartProvider = ({children}) => {
             };
             setCart([...cart, product]);
             Swal.fire({
+                position: 'center',
                 title: 'Producto agregado al carrito',
                 icon: 'success',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 1500
             });
         }
     };

@@ -1,3 +1,52 @@
+.cartList {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    box-shadow: 5px 5px 8px #000;
+}
+
 .imageProduct {
-    height: 150px;
+    width: 150px;
+    height: auto;
+}
+
+.listadoCarrito {
+    display: flex;
+    justify-content: center;
+}
+
+.lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.detailProduct {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.detailProduct h2,
+h3 {
+    font-size: 18px;
+    margin: 10px;
+}
+
+.imageProduct {
+    width: 150px;
+    height: auto;
+}
+
+.trashButton {
+    margin-left: auto;
+}
+
+.totales {
+    font-size: 18px;
+    margin: 30px;
 }

@@ -13,11 +13,13 @@ import ItemCart from "./ItemCart";
 import Swal from "sweetalert2";
 
 const Cart = () => {
-  const { cart, clear, removeItem, total } = useContext(CartContext);
+  const { cart, clear, total } = useContext(CartContext);
   const [formValue, setFormValue] = useState({
     name: "",
+    lastName: "",
     phone: "",
     email: "",
+    emailRepeat: "",
   });
 
   const navigate = useNavigate();
@@ -27,7 +29,7 @@ const Cart = () => {
     const dataBase = getFirestore();
     const querySnapshot = collection(dataBase, "orders");
 
-    if (!formValue.name || !formValue.phone || !formValue.email) {
+    if (!formValue.name || formValue.lastName || !formValue.phone || !formValue.email || !formValue.emailRepeat) {
       Swal.fire({
         title: "Por favor complete todos los campos para finalizar la compra",
         icon: "warning",
@@ -36,8 +38,11 @@ const Cart = () => {
       addDoc(querySnapshot, {
         buyer: {
           email: formValue.email,
+          emailRepeat: formValue.emailRepeat,
           name: formValue.name,
+          lastName: formValue.lastName,
           phone: formValue.phone,
+
         },
         products: cart.map((product) => {
           return {
@@ -80,69 +85,20 @@ const Cart = () => {
       [event.target.name]: event.target.value,
     });
   };
-
-/*   const [count, setCount] = useState(product.stock === 0 ? 0 : 1); */
-
   return (
-    <div className="cartTable">
+    <div>
       {cart.length > 0 && (
-        <section className="prueba">
-          <table className="cartList">
-            <thead>
-              <tr className="backgroundTitles">
-                <th></th>
-                <th>Producto</th>
-                <th>Cant.</th>
-                <th>P. Unitario</th>
-                <th>Subtotal</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
+        <section>
               {cart.map((product) => (
-                <tr key={product.id}>
-                  <td><ItemCart product={product}/></td>
-                  <td className="trashButton">
-                    <button onClick={() => removeItem(product.id)}>
-                      Eliminar Producto
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="32"
-                        height="32"
-                        viewBox="0 0 32 32"
-                      >
-                        <path
-                          fill="none"
-                          stroke="white"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M28 6H6l2 24h16l2-24H4m12 6v12m5-12l-1 12m-9-12l1 12m0-18l1-4h6l1 4"
-                        />
-                      </svg>
-                    </button>
-                  </td>
-                  <td>
-                    <img
-                      className="removeItem"
-                      onClick={() => removeItem(product.id)}
-                      src="#"
-                      alt=""
-                    />
-                  </td>
-                </tr>
+                <div>
+                <div className="prueba"key={product.id}>
+                  <div><ItemCart product={product}/></div>
+                  </div>
+                </div>
               ))}
-              <tr>
-                <td className="backgroundTitles"></td>
-                <td className="backgroundTitles"></td>
-                <td className="backgroundTitles"></td>
-                <td className="backgroundTitles"></td>
-                <td className="totalPrice backgroundTitles">Total a pagar:</td>
-                <td className="totalPrice backgroundTitles">${total}</td>
-                <td className="backgroundTitles"></td>
-              </tr>
-            </tbody>
-          </table>
+                <div className="totalPrice">
+                  <span>Total a pagar: ${total}</span>
+                </div>
           <div>
             <form className="cartForm">
               <span>Complete sus datos para finalizar la compra</span>
@@ -153,6 +109,14 @@ const Cart = () => {
                 value={formValue.name}
                 onChange={handleInput}
                 name="name"
+              />
+              <input
+                className="cartInput"
+                type="text"
+                placeholder="Apellido"
+                value={formValue.lastName}
+                onChange={handleInput}
+                name="lastName"
               />
               <input
                 className="cartInput"
@@ -169,6 +133,14 @@ const Cart = () => {
                 value={formValue.email}
                 onChange={handleInput}
                 name="email"
+              />
+              <input
+                className="cartInput"
+                type="email"
+                placeholder="Repita su Email"
+                value={formValue.emailRepeat}
+                onChange={handleInput}
+                name="emailRepeat"
               />
               <div className="botonesCarrito">
                 <button onClick={createOrder}>Completar Compra</button>
