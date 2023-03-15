@@ -10,7 +10,6 @@ const ItemCount = ({count, setCount}) => {
     }
     setCount (count - 1);
   };
-  
   return (
     <div className="counter"> 
     <div className="controllers">

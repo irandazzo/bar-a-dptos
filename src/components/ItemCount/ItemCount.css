@@ -1,19 +1,23 @@
 .controllers {
-    display: flex;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.controllers button {
-    padding: 5px 10px;
-	font-size: 16px;
+button {
 	background-color: #000;
-	color: #fff;
 	border: none;
-	border-radius: 5px;
+	color: white;
+	padding: 5px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
 	cursor: pointer;
-	margin-left: 10px;
 }
-button:hover {
-	background-color: #18171c;
+span {
+	font-size: 20px;
+	margin: 0 10px;
 }
 .counter {
     font-size: 15px;

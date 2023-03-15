@@ -3,7 +3,6 @@ import ItemCount from '../ItemCount/ItemCount';
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {CartContext} from '../../context/CartContext';
-import Swal from 'sweetalert2';
 
 const ItemDetail = ({detail}) => {
   const navigate = useNavigate();

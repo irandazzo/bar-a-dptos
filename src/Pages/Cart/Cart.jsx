@@ -9,6 +9,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import "./Cart.css";
+import ItemCart from "./ItemCart";
 import Swal from "sweetalert2";
 
 const Cart = () => {
@@ -80,11 +81,13 @@ const Cart = () => {
     });
   };
 
+/*   const [count, setCount] = useState(product.stock === 0 ? 0 : 1); */
+
   return (
     <div className="cartTable">
       {cart.length > 0 && (
-        <section>
-          <table>
+        <section className="prueba">
+          <table className="cartList">
             <thead>
               <tr className="backgroundTitles">
                 <th></th>
@@ -98,17 +101,7 @@ const Cart = () => {
             <tbody>
               {cart.map((product) => (
                 <tr key={product.id}>
-                  <td>
-                    <img
-                      className="imageProduct"
-                      src={`/images/${product.image}`}
-                      alt={product.name}
-                    />
-                  </td>
-                  <td>{product.name}</td>
-                  <td>{product.quantity}</td>
-                  <td>${product.price}</td>
-                  <td>${product.price * product.quantity}</td>
+                  <td><ItemCart product={product}/></td>
                   <td className="trashButton">
                     <button onClick={() => removeItem(product.id)}>
                       Eliminar Producto

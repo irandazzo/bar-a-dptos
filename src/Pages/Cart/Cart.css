@@ -1,15 +1,27 @@
 /* Titulos y totales del Carrito */
 .backgroundTitles th {
     background-color: #dedddd;
+    padding: 30px;
 }
-
-.backgroundTitles {
+table{
+    display: flex;
+    align-items: center;
+}
+/* table tr th{
+    margin-left: 20px;
+}
+thead tr th{
     background-color: #dedddd;
     padding: 8px;
+} */
+.cartList{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
 }
-
 .totalPrice {
-    font-size: 14px;
+    font-size: 20px;
     text-transform: uppercase;
     font-weight: 500;
     text-align: center;
@@ -24,15 +36,51 @@
     margin-right: 50px;
 }
 
-section {
+/* section {
     margin: 10px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+} */
+
+/* Estilos del formulario */
+.cartForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.cartInput {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.botonesCarrito {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #1C1C1C;
 }
 
-.cartInput {
+/* .cartInput {
     box-sizing: border-box;
     height: 40px;
     border: 1px solid #cecece;
@@ -67,7 +115,7 @@ section {
     margin: 15px;
     padding: 10px;
     text-transform: uppercase;
-}
+} */
 
 .cartTable td,
 th {
@@ -84,9 +132,9 @@ th {
     background-color: #f3f3f3;
 }
 
-.imageProduct {
+/* .imageProduct {
     height: 150px;
-}
+} */
 
 /* Botones Carrito */
 .trashButton button {
