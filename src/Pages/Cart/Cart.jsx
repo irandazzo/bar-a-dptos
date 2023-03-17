@@ -10,7 +10,8 @@ import {
 } from "firebase/firestore";
 import "./Cart.css";
 import ItemCart from "./ItemCart";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 const Cart = () => {
   const { cart, clear, total } = useContext(CartContext);
@@ -19,8 +20,32 @@ const Cart = () => {
     lastName: "",
     phone: "",
     email: "",
-    emailRepeat: "",
+    emailCheck: "",
   });
+
+  const completeInputs = () => {
+    const MySwal = withReactContent(Swal);
+    MySwal.fire({
+      position: "center",
+      icon: "warning",
+      title: "Complete sus datos",
+      text: "Complete todos los campos para finalizar la compra",
+      showConfirmButton: true,
+      timer: 5500,
+    });
+  };
+
+  const mailError = () => {
+    const MySwal = withReactContent(Swal);
+      MySwal.fire({
+      position: "center",
+      icon: "error",
+      title: "Error",
+      text: "Los campos de email no coinciden",
+      showConfirmButton: true,
+      timer: 5500,
+    });
+  };
 
   const navigate = useNavigate();
 
@@ -29,16 +54,15 @@ const Cart = () => {
     const dataBase = getFirestore();
     const querySnapshot = collection(dataBase, "orders");
 
-    if (!formValue.name || formValue.lastName || !formValue.phone || !formValue.email || !formValue.emailRepeat) {
-      Swal.fire({
-        title: "Por favor complete todos los campos para finalizar la compra",
-        icon: "warning",
-      });
-    } else {
+    if (!formValue.name || !formValue.lastName || !formValue.phone || !formValue.email) {
+      completeInputs();
+    } else if (formValue.email !== formValue.emailCheck) {
+      mailError();
+      } else {
       addDoc(querySnapshot, {
         buyer: {
           email: formValue.email,
-          emailRepeat: formValue.emailRepeat,
+          emailCheck: formValue.emailCheck,
           name: formValue.name,
           lastName: formValue.lastName,
           phone: formValue.phone,
@@ -56,7 +80,8 @@ const Cart = () => {
       })
         .then((response) => {
           console.log(response.id);
-          Swal.fire({
+          const MySwal = withReactContent(Swal);
+          MySwal.fire({
             title: `Orden con el Id: ${response.id} ha sido creada`,
             icon: "success",
           });
@@ -138,9 +163,9 @@ const Cart = () => {
                 className="cartInput"
                 type="email"
                 placeholder="Repita su Email"
-                value={formValue.emailRepeat}
+                value={formValue.emailCheck}
                 onChange={handleInput}
-                name="emailRepeat"
+                name="emailCheck"
               />
               <div className="botonesCarrito">
                 <button onClick={createOrder}>Completar Compra</button>

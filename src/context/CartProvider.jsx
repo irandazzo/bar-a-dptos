@@ -1,6 +1,7 @@
 import {CartContext} from "./CartContext";
 import { useState, useEffect } from "react";
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 const CartProvider = ({children}) => {
@@ -11,9 +12,13 @@ const CartProvider = ({children}) => {
         setTotal (cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0))
     }, [cart]);
     
-    const addItem = (item, quantity) => {
-        console.log(isInCart(item.id));
+    
+    
 
+    const addItem = (item, quantity) => {
+        
+        console.log(isInCart(item.id));
+        
         if (isInCart(item.id)){
             const newCart = cart.map ((product) => {
                 if (product.id === item.id){
@@ -23,8 +28,17 @@ const CartProvider = ({children}) => {
                     return product
                 }
             })
+            
             setCart (newCart)
         } else{
+            const MySwal = withReactContent(Swal);
+            MySwal.fire({
+                position: 'center',
+                title: 'Producto agregado al carrito',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            });
             const product = {
                 id: item.id,
                 name: item.title,
@@ -36,19 +50,15 @@ const CartProvider = ({children}) => {
                 image: item.image
             };
             setCart([...cart, product]);
-            Swal.fire({
-                position: 'center',
-                title: 'Producto agregado al carrito',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 1500
-            });
+            
+            
         }
     };
 
 
     const clear = () => {
-        Swal.fire({
+        const MySwal = withReactContent(Swal);
+        MySwal.fire({
             title: '¿Está seguro que desea eliminar el carrito?',
             icon: 'warning',
             showCancelButton: true,
@@ -58,7 +68,7 @@ const CartProvider = ({children}) => {
             }).then((result) => {
             if (result.isConfirmed) {
             clear();
-            Swal.fire(
+            MySwal.fire(
                 'Eliminado!',
                 'El carrito ha sido eliminado.',
                 'success'
