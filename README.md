@@ -7,7 +7,7 @@ Valor de los precios expresados en AR.
 Se podrá visualizar el deploy de esta app en: https://bar-a-dptos.vercel.app/
 
 
-![bar-a-dptos-gif](baradptos.gif)
+![bar-a-dptos-gif](./baradptos.gif)
 
 # Librerias
 
