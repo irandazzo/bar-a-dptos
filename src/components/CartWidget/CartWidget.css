@@ -1,21 +1,9 @@
-/* 
-.carrito{
-    display: flex;
-    margin: 10px;
-    align-items: center;
-    color: #fff;
-    font-size: 20px;
-} */
 .carrito img{
     display: flex;
     color: #fff;
     width: 60px;
     height: 60px;
-}/* 
-.numCarrito{
-    color: #fff;
-    text-decoration: none;
-} */
+}
 .cartCount{
     position: absolute;
     top: 40px;/* 

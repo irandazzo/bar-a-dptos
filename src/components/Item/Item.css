@@ -9,9 +9,6 @@
   text-align: center;
   padding: 10px;
 }
-/* .item img {
-  width: 100%;
-} */
 .item button{
   display: flex;
   justify-content: center;
@@ -19,6 +16,5 @@
 }
 .imagenBebida{
   height: 200px;
-  /* margin-bottom: 10px;*/
   margin: 20px;
 }

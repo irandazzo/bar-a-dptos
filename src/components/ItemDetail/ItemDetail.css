@@ -5,8 +5,7 @@
 	display: flex;
 	align-items: center;
 }
-.detailContainer {/* 
-	flex: 1; */
+.detailContainer {
 	margin: 15px;
 	padding: 10px;
 	justify-content: center;
