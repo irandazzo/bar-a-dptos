@@ -13,9 +13,7 @@ const CartProvider = ({children}) => {
     }, [cart]);
     
     
-    
-
-    const addItem = (item, quantity) => {
+const addItem = (item, quantity) => {
         
         console.log(isInCart(item.id));
         
@@ -33,11 +31,10 @@ const CartProvider = ({children}) => {
         } else{
             const MySwal = withReactContent(Swal);
             MySwal.fire({
-                position: 'center',
-                title: 'Producto agregado al carrito',
-                icon: 'success',
+                position: 'bottom',
+                title: 'Producto agregado al Carrito',
                 showConfirmButton: false,
-                timer: 1500
+                timer: 2000
             });
             const product = {
                 id: item.id,
@@ -55,27 +52,19 @@ const CartProvider = ({children}) => {
         }
     };
 
-
     const clear = () => {
         const MySwal = withReactContent(Swal);
         MySwal.fire({
-            title: '¿Está seguro que desea eliminar el carrito?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, eliminar'
-            }).then((result) => {
-            if (result.isConfirmed) {
-            clear();
-            MySwal.fire(
-                'Eliminado!',
-                'El carrito ha sido eliminado.',
-                'success'
-            )
-            }
-            setCart([]);
-        })
+            position: 'bottom',
+            title: 'Producto agregado al Carrito',
+            showConfirmButton: false,
+            timer: 2000
+        });
+        MySwal.fire(
+            'Eliminado!',
+            'El Carrito ha sido eliminado.',
+        )
+        setCart([]);
 }
 
     const removeItem = (productId) => {

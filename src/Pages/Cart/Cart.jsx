@@ -39,7 +39,6 @@ const Cart = () => {
     const MySwal = withReactContent(Swal);
       MySwal.fire({
       position: "center",
-      icon: "error",
       title: "Error",
       text: "Los campos de email no coinciden",
       showConfirmButton: true,
@@ -83,23 +82,19 @@ const Cart = () => {
           const MySwal = withReactContent(Swal);
           MySwal.fire({
             title: `Orden con el Id: ${response.id} ha sido creada`,
-            icon: "success",
           });
           updateStocks(dataBase);
         })
         .catch((error) => console.log(error));
     }
   };
-
   const updateStocks = (dataBase) => {
     cart.forEach((product) => {
       const querySnapshot = doc(dataBase, "products", product.id);
       updateDoc(querySnapshot, {
         stock: product.stock - product.quantity,
       })
-        .then(() => {
-          alert(`El stock de los productos ha sido actualizado`);
-        })
+        .then(() => {})
         .catch((error) => console.log(error));
     });
   };

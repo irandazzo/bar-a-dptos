@@ -18,22 +18,19 @@ const Footer = () => {
                 <h3>Redes Sociales</h3>
                     <ul>
                     <li>
-                        <a href="#">
-                        <i className="fab fa-facebook"></i>
+                        <a href="www.facebook.com">
+                        <img src="./images/facebook.png" alt="logo-facebook" width= "30p"/>
                         </a>
-                        Facebook
                     </li>
                     <li>
-                        <a href="#">
-                        <i className="fab fa-twitter"></i>
+                        <a href="www.twitter.com">
+                        <img src="./images/twitter.png" alt="logo-twitter" width= "30p"/>
                         </a>
-                        Twitter
                     </li>
                     <li>
-                        <a href="#">
-                            <i className="fab fa-instagram"></i>
+                        <a href="www.instagram.com">
+                            <img src="./images/instagram.png" alt="logo-instagram" width= "30p"/>
                         </a>
-                            Instagram
                     </li>
                     </ul>
                 </div>

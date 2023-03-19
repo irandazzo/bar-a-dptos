@@ -1,6 +1,17 @@
+# Tienda Bar a Dptos
+Sitio web de venta de bebidas a domicilio en Argentina.
+Valor de los precios expresados en AR.
+
+*Los valores indicados son ficticios y pueden no guardar ninguna relación con su precio real.
+
+Se podrá visualizar el deploy de esta app en: https://bar-a-dptos.vercel.app/
+
+
+![bar-a-dptos-gif](baradptos.gif)
+
 # Librerias
 
-Se implementa la librería Sweetalert2 y Toastify para darle interactividad a los botones: "Agregar al Carrito", "Vaciar Carrito"
+Se implementa la librería Sweetalert2 para darle interactividad a los botones: "Agregar al Carrito", "Eliminar Carrito"
 
 # Getting Started with Create React App
 

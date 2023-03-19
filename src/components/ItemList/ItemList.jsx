@@ -7,13 +7,12 @@ const ItemList = ({productList}) => {
 
     return (
         <div className="container">
-             
             <div className="itemList">
                 {productList.map((product) =>
                 <div className="card" key={product.id}>
                     <Link to={`/item/${product.id}`}>
                         <Item product={product}/>
-                        <button>Agregar al Carrito</button>
+                        <button>Ver Detalle</button>
                     </Link>
                 </div>
                 )}

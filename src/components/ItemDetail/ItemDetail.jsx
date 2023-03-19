@@ -8,12 +8,6 @@ const ItemDetail = ({detail}) => {
   const navigate = useNavigate();
   const {addItem} = useContext(CartContext);
   const [count, setCount] = useState(detail.stock === 0 ? 0 : 1);
-
-/* const agregarAlCarrito = (event) => {
-  event.preventDefault()
-
-  console.log({...detail, quantity: count });
-}; */
   return (
     <div className='container'>
         <img className='imageContainer' src={`/images/${detail.image}`} alt={detail.title} width="200px"/>
